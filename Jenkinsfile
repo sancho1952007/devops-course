@@ -99,22 +99,7 @@ pipeline {
             // host's `docker images`; the next `make up` / `make run-docker`
             // finds it.
             steps {
-                sh '''
-                    BASE_IMAGE=ghcr.io/astral-sh/uv:python3.12-bookworm
-        
-                    # Remove the previously cached base image reference
-                    docker image rm -f "$BASE_IMAGE" || true
-        
-                    # Explicitly pull the AMD64 variant
-                    docker pull --platform=linux/amd64 "$BASE_IMAGE"
-        
-                    # Verify architecture before building
-                    docker image inspect "$BASE_IMAGE" \
-                        --format '{{.Os}}/{{.Architecture}}'
-        
-                    # Build normally using the legacy builder
-                    docker build --platform=linux/amd64 -t notes-app .
-                '''
+                sh 'docker build -t notes-app .'
             }
         }
 

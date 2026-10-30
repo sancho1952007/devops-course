@@ -9,7 +9,7 @@
 # same thing.
 
 # uv's official Python image: Python 3.12 + uv, so no pip/apt dance at all.
-FROM ghcr.io/astral-sh/uv:python3.12-bookworm
+FROM astral/uv:python3.12-bookworm@sha256:9aa60c50016c0485636ab9a830246a6ef3399aa4a8bab3d17ef4a2358fba2ca7
 
 # The app runs as this unprivileged user - a habit ch.4 installs early.
 # -m -d /app makes /app its home; WORKDIR below then uses it, and it is
