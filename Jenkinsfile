@@ -99,7 +99,7 @@ pipeline {
             // host's `docker images`; the next `make up` / `make run-docker`
             // finds it.
             steps {
-                sh 'docker buildx build --platform linux/amd64 --load -t notes-app .'
+                sh 'docker build --platform=linux/amd64 -t notes-app .'
             }
         }
 
