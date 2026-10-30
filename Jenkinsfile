@@ -99,7 +99,7 @@ pipeline {
             // host's `docker images`; the next `make up` / `make run-docker`
             // finds it.
             steps {
-                sh 'docker build -t notes-app . --platform linux/amd64'
+                sh 'docker build --platform linux/amd64 -t notes-app .'
             }
         }
 
